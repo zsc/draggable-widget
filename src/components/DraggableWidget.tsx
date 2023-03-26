@@ -18,29 +18,34 @@ const DraggableWidget: React.FC = () => {
   const moveText = (dragId: string, hoverId: string) => {
     const dragIndex = texts.findIndex((item) => item.id === dragId);
     const hoverIndex = texts.findIndex((item) => item.id === hoverId);
-    const dragText = texts[dragIndex];
-	const newTexts = [...texts];
-	newTexts.splice(dragIndex, 1);
-	newTexts.splice(hoverIndex, 0, dragText);
-	setTexts(newTexts);
-};
 
-return (
-<DndProvider backend={HTML5Backend}>
-<div>
-{texts.map((textItem) => (
-<DraggableText
-         key={textItem.id}
-         id={textItem.id}
-         text={textItem.text}
-         moveText={moveText}
-       />
-))}
-</div>
-</DndProvider>
-);
+    const newTexts = [...texts];
+    const [draggedItem] = newTexts.splice(dragIndex, 1);
+    newTexts.splice(hoverIndex, 0, draggedItem);
+    setTexts(newTexts);
+  };
+
+  const containerStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "16px",
+  };
+
+  return (
+    <DndProvider backend={HTML5Backend}>
+      <div style={containerStyle}>
+        {texts.map((textItem) => (
+          <DraggableText
+            key={textItem.id}
+            id={textItem.id}
+            text={textItem.text}
+            moveText={moveText}
+          />
+        ))}
+      </div>
+    </DndProvider>
+  );
 };
 
 export default DraggableWidget;
-   
-
