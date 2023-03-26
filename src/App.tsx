@@ -1,7 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import DraggableWidget from './components/DraggableWidget';
 
+/*
 function App() {
   return (
     <div className="App">
@@ -22,5 +24,16 @@ function App() {
     </div>
   );
 }
+//*/
+
+
+function App() {
+  return (
+    <div className="App">
+      <DraggableWidget />
+    </div>
+  );
+}
+//*/
 
 export default App;
