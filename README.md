@@ -2,6 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+```
+npx create-react-app draggable-widget --template typescript
+```
+
+## Install
+```
+npm install react-dnd react-dnd-html5-backend
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
